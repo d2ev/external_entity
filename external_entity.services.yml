@@ -1,0 +1,4 @@
+services:
+  external_entity.fakestorapi:
+    class: Drupal\external_entity\Services\FakeStoreAPI
+    arguments: ['@http_client', '@logger.factory']

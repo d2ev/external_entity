@@ -1,0 +1,6 @@
+name: 'External Entity'
+type: module
+description: 'Provides an interface for external entities.'
+package: Questionmark
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
