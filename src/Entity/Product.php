@@ -30,6 +30,7 @@ use Drupal\Core\Entity\EntityBase;
  *   },
  *   links = {
  *     "canonical" = "/product/{product}",
+ *     "add-form" = "/product/add",
  *     "edit-form" = "/product/{product}/edit",
  *     "delete-form" = "/product/{product}/delete",
  *     "collection" = "/products"
