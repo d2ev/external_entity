@@ -12,7 +12,6 @@ use Drupal\Core\Entity\EntityBase;
  *   handlers = {
  *     "view_builder" = "Drupal\external_entity\Entity\ProductViewBuilder",
  *     "list_builder" = "Drupal\external_entity\Entity\ProductListBuilder",
- *     "views_data" = "Drupal\external_entity\Entity\ProductViewsData",
  *     "access" = "Drupal\external_entity\Entity\ProductAccessControlHandler",
  *     "form" = {
  *       "default" = "Drupal\external_entity\Entity\ProductForm",
@@ -35,7 +34,20 @@ use Drupal\Core\Entity\EntityBase;
  *     "delete-form" = "/product/{product}/delete",
  *     "collection" = "/products"
  *   },
- *   additional = {}
+ *   additional = {
+ *     "properties" = {
+ *       "title" = {"lable" = "Title", "type" = "string", "viewModes" = {"full", "teaser"}},
+ *       "price" = {"lable" = "Price", "type" = "decimal", "viewModes" = {"full", "teaser"} },
+ *       "category" = {"lable" = "Category", "type" = "string", "viewModes" = {"full", "teaser"}},
+ *       "description" = {"lable" = "Description", "type" = "string", "viewModes" = {"full", "teaser"}},
+ *       "image" = {"lable" = "Image", "type" = "image", "viewModes" = {"full", "teaser"}},
+ *       "rate" = {"lable" = "Rate", "type" = "decimal", "viewModes" = {"full", "teaser"}, "composite" = TRUE},
+ *       "count" = {"lable" = "Count", "type" = "integer", "viewModes" = {"full", "teaser"}, "composite" = TRUE},
+ *     },
+ *     "compositeProperties" = {
+ *       "rating" = {"lable" = "Rating", "properties" = {"rate", "count"}, "viewModes" = {"full", "teaser"}},
+ *     },
+ *   }
  * )
  */
 class Product extends EntityBase {
@@ -69,6 +81,10 @@ class Product extends EntityBase {
 
   public function set($key, $value) {
     $this->{$key} = $value;
+  }
+
+  public function get($key) {
+    return $this->{$key};
   }
 
   /**

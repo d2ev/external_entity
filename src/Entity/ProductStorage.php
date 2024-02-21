@@ -46,7 +46,9 @@ class ProductStorage extends EntityStorageBase {
   }
 
   protected function doSave($id, EntityInterface $entity) {
-    // TODO: Implement doSave() method.
+    $is_new = $entity->isNew();
+    $properties = $this->entityType->get('properties');
+    $compositeProperties = $this->entityType->get('compositeProperties');
   }
 
   protected function getQueryServiceName() {
